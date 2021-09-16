@@ -1,0 +1,13 @@
+
+import com.droolsprogrammatic.modelos.Cliente
+import com.droolsprogrammatic.modelos.Compra
+
+rule "RN-001"
+	when
+	    Compra (
+	        valor >= 1000
+	    )
+        $cliente : Cliente( vip == true)
+   	then
+        $cliente.acumularPuntos(100);
+end
